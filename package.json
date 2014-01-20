@@ -1,0 +1,22 @@
+{
+  "name": "express-ensure-ctype",
+  "version": "0.1.0",
+  "description": "Express middleware for blocking unwanted Content-Type(s).",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r should"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "content-type",
+    "mime"
+  ],
+  "author": "nemtsov@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "sinon": "~1.7.3",
+    "should": "~3.0.1",
+    "mocha": "~1.17.0"
+  }
+}
