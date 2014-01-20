@@ -1,8 +1,8 @@
-Express Ensure Content-Type Middleware
-======================================
+Ensure Content-Type
+===================
 
-Tiny middleware for blocking unwanted Content-Type(s).
-When a type doesn't match one of the provided ones, a 400 error is
+Tiny [express](https://github.com/visionmedia/express) middleware for blocking 
+unwanted Content-Type(s). When a type doesn't match, a 400 error is
 sent to the client, otherwise the next middleware is called.
 
 Usage:
