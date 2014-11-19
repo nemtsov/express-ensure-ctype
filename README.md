@@ -54,4 +54,4 @@ ensureCtype(['csv', 'text']);
 License
 -------
 
-MIT
+[MIT](/LICENSE)
