@@ -1,4 +1,4 @@
-# Ensure Content-Type [![Build Status](https://secure.travis-ci.org/areusjs/di.png)](http://travis-ci.org/nemtsov/express-ensure-ctype) [![NPM version](https://badge.fury.io/js/express-ensure-ctype.svg)](http://badge.fury.io/js/express-ensure-ctype)
+# Ensure Content-Type [![Build Status](http://travis-ci.org/nemtsov/express-ensure-ctype.png)](http://travis-ci.org/nemtsov/express-ensure-ctype) [![NPM version](https://badge.fury.io/js/express-ensure-ctype.svg)](http://badge.fury.io/js/express-ensure-ctype)
 
 Tiny [express](https://github.com/visionmedia/express) middleware for blocking 
 unwanted Content-Type(s). When a type doesn't match, a 400 error is
