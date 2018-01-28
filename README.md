@@ -7,12 +7,13 @@ sent to the client, otherwise the next middleware is called.
 Usage:
 
 ```javascript
-var express = require('express'),
-  ensureCtype = require('express-ensure-ctype'),
-  ensureJson = ensureCtype('json'),
-  app = express();
+const express = require('express');
+const ensureCtype = require('express-ensure-ctype');
 
-app.post('/', ensureJson, function (req, res) {
+const ensureJson = ensureCtype('json');
+const app = express();
+
+app.post('/', ensureJson, (req, res) => {
   res.json(req.body);
 });
 
@@ -22,25 +23,27 @@ app.listen(3000);
 Result:
 
 ```
-curl -i -XPOST 'http://localhost:3000/'
+curl -i -XPOST http://localhost:3000/
 
-HTTP/1.1 400 Bad Request
+HTTP/1.1 415 Unsupported Media Type
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
 Content-Length: 37
-Date: Mon, 20 Jan 2014 05:02:37 GMT
+ETag: W/"25-LXMJEoIT4KTBnB71Rca6CNA/pM0"
+Date: Sun, 28 Jan 2018 00:45:38 GMT
 Connection: keep-alive
 
 "Unsupported Content-Type. Use: json"
 ```
 
 ```
-curl -i -XPOST -H 'Content-Type: application/json' 'http://localhost:3000/'
+curl -i -H 'Content-type: application/json' -d '{}' http://localhost:3000/
 
 HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Date: Mon, 20 Jan 2014 05:05:24 GMT
+ETag: W/"7-ofL7/ixK2BdJzQOAtzUpXQb50MQ"
+Date: Sun, 28 Jan 2018 00:44:58 GMT
 Connection: keep-alive
 Transfer-Encoding: chunked
 ```

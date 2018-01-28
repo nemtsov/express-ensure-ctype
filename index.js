@@ -1,11 +1,12 @@
 module.exports = function ensureCtype(contentTypes) {
-  var types = Array.isArray(contentTypes) ? contentTypes : [contentTypes],
-    message = 'Unsupported Content-Type. Use: ' + types.join(' or '),
-    send = ('json' === contentTypes) ? 'json' : 'send';
+  const types = Array.isArray(contentTypes) ? contentTypes : [contentTypes];
+  const typeStr = types.join(' or ');
+  const message = `Unsupported Content-Type. Use: ${typeStr}`;
+  const send = /json/.test(typeStr) ? 'json' : 'send';
 
-  return function (req, res, next) {
-    var some = types.some(function (c) { return req.is(c) });
-    if (!some) return res[send](400, message);
+  return (req, res, next) => {
+    const isType = req.is(types);
+    if (!isType) return res.status(415)[send](message);
     next();
   };
 };
