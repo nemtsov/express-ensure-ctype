@@ -1,14 +1,15 @@
-var express = require('express'),
-  ensureCtype = require('./'),
-  ensureJson = ensureCtype('json'),
-  ensureCsvOrText = ensureCtype(['csv', 'text']),
-  app = express();
+const express = require('express');
+const ensureCtype = require('./');
 
-app.post('/', ensureJson, function (req, res) {
-  res.json(req.body);
+const ensureJson = ensureCtype('json');
+const ensureCsvOrText = ensureCtype(['csv', 'text']);
+const app = express();
+
+app.post('/', ensureJson, (req, res) => {
+  res.json('hello');
 });
 
-app.post('/data', ensureCsvOrText, function (req, res) {
+app.post('/data', ensureCsvOrText, (req, res) => {
   res.send(req.body);
 });
 
